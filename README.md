@@ -2,4 +2,4 @@
 
 A mini-project, implemented in C programming language to develop a random password generator.
 
-![image](https://user-images.githubusercontent.com/82054687/179368146-6e74bd0f-9faf-4366-b52f-8561e0aa9c7c.png)
+![2022-07-17](https://user-images.githubusercontent.com/82054687/179368279-901aa7f7-986f-4ee6-a408-998cb37d3129.png)
