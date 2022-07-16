@@ -1,0 +1,88 @@
+//Required libraries
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+//Function to Randomly generate password of length N
+void randomPG(int N)
+{
+    int randomizer=0;
+    
+    
+	//Seed the random-number generator with current time so that the numbers will be different every time
+    //Makes use of the computer's internal clock to control the choice of the seed
+    srand((unsigned int)(time(NULL)));  
+
+    char numbers[] = "0123456";
+    char letters[] = "abcdefghijklmnopqrstuvwxyz";
+    char LETTERS[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    char symbols[] = "!@#$^&*?";
+
+    char password[N];          //To store the random password
+    int i;                    // Initialize counter
+    randomizer = rand()%4;   //To select the randomizer inside the loop
+    
+    for( i=0;i<N;i++)
+    {
+
+        if(randomizer == 1)
+        {
+            password[i] = numbers[rand()%10];
+            randomizer = rand() % 4;
+            printf("%c",password[i]);
+        }
+
+        else if(randomizer == 2)
+        {
+            password[i] = symbols[rand()%8];
+            randomizer = rand() % 4;
+            printf("%c",password[i]);
+        }
+        else if (randomizer == 3)
+        {
+            password[i] = LETTERS[rand()%26];
+            randomizer = rand() % 4;
+            printf("%c",password[i]);
+        }
+        else{
+            password[i] = letters[rand()%26];
+            randomizer = rand() % 4;
+            printf("%c",password[i]);
+        }
+    }
+    printf("\n");
+}
+
+//Driver Code
+int main()
+{
+    int N,i,t;
+
+    printf("\n\t\t\t\t\t\tRANDOM PASSWORD GENERATOR\n");
+    printf("-----------------------------------------------------------------------------------------------------------------------\n");
+    printf("-----------------------------------------------------------------------------------------------------------------------\n");
+    printf("\n\tMENU\n");
+    printf(" 1. Generate Password \n");
+    printf(" 2. Exit\n");
+
+    printf("\n Make a choice :: ");
+    scanf("%d",&t);
+
+//Switch Case for a presentable menu driven option
+    switch (t)
+    {
+        case 1:
+        printf(" Enter length of your password:: ");
+        scanf("%d",&N);
+        printf("\n Password Generated :: ");
+        randomPG(N);
+        printf("\n");
+        break;
+
+        case 2:
+        break;
+
+        default: printf("Invalid Choice!!");
+    }
+    return 0;
+}
